@@ -51,6 +51,11 @@ void delete_hotspot() {
 }
 
 int main() {
+    std::vector<std::string> depends = { "dnsmasq" };
+    if (!check_dependency(depends)) {
+        return 0;
+    }
+
     std::vector<std::string> menu = {
         "Create new hotspot and activate it.",
         "Activate a hotspot.",

@@ -15,8 +15,7 @@ int getch() {
     return ch;
 }
 
-std::string get_pass(const char *prompt, bool show_asterisk)
-{
+std::string get_pass(const char *prompt, bool show_asterisk) {
     const char BACKSPACE=127;
     const char RETURN=10;
 
@@ -102,4 +101,17 @@ std::string get_input(const char *prompt, bool is_pwd, const char *str) {
     }
     std::cout << '\n';
     return result;
+}
+
+bool check_dependency(std::vector<std::string> depends) {
+    for (std::string item: depends) {
+        std::string cmd = "command -v " + item;
+        std::string result = exec(cmd.c_str());
+        if (result.length() == 0) {
+            std::cout << "This program requires " + item + 
+                        " installed on your machine." << '\n';
+            return false;
+        }
+    }
+    return true;
 }

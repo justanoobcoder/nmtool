@@ -13,6 +13,11 @@ This program requires `dnsmasq` installed on your machine, so install it first.
 - Delete hotspot
 
 ## Installation
+For Arch users, it's available on [AUR](https://aur.archlinux.org/packages/nmtool):
+```
+yay -S nmtool
+```
+For other distro users:
 ```
 sudo make install clean
 ```
